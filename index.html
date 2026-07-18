@@ -328,7 +328,7 @@
   function swap(i,k,el){const m=document.getElementById('lbMain');m.src=img(WORKS[i].imgs[k],1600);m.alt=WORKS[i].t+' view '+(k+1)+' — bronze sculpture by Emmanuel Okoro';
     [...document.querySelectorAll('#lbStrip img')].forEach(t=>t.classList.remove('active'));el.classList.add('active')}
   function closeLb(){lb.classList.remove('open');document.title=SITE_TITLE;}
-  function scrollThumbs(direction){const strip=document.getElementById('lbStrip');strip.scrollTop+=direction*100;}
+  function scrollThumbs(direction){const strip=document.getElementById('lbStrip');const imgs=strip.querySelectorAll('img');const active=strip.querySelector('img.active');if(!active||!imgs.length)return;let currentIndex=Array.from(imgs).indexOf(active);let nextIndex=currentIndex+direction;if(nextIndex<0)nextIndex=imgs.length-1;if(nextIndex>=imgs.length)nextIndex=0;imgs[nextIndex].click();}
   function enquire(title){go('contact');document.getElementById('regarding').textContent='Regarding: '+title;document.getElementById('m').value='I would like to enquire about \u201c'+title+'\u201d. '}
   function sendEnq(e){e.preventDefault();document.getElementById('enqForm').querySelector('.btn').style.display='none';document.getElementById('done').style.display='block';return false}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeDrawer()}});
