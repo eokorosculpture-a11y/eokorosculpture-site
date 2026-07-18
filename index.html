@@ -93,9 +93,23 @@
     border: 1px solid transparent;
     transition: opacity 0.2s, border 0.2s;
 }
-.lb-right img:hover, .lb-right img.active {
-    opacity: 1;
-    border-color: var(--verdigris-bright);
+.lb-nav-arrows {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.lb-arrow {
+    background: none;
+    border: 1px solid #B9B1A1;
+    color: #B9B1A1;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    transition: all 0.2s;
+}
+.lb-arrow:hover {
+    color: #EDE7DA;
+    border-color: #EDE7DA;
 }
 
 </style>
@@ -255,7 +269,15 @@
     <div><h3 id="lbTitle"></h3><div class="spec" id="lbSpec"></div></div>
     <div class="lbdesc" id="lbDesc"></div>
   </div>
-  <div class="lb-center"><img id="lbMain" alt=""></div>
+  <div class="lb-center">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+      <img id="lbMain" alt="">
+      <div class="lb-nav-arrows">
+        <button class="lb-arrow" onclick="scrollThumbs(-1)">‹</button>
+        <button class="lb-arrow" onclick="scrollThumbs(1)">›</button>
+      </div>
+    </div>
+  </div>
   <div class="lb-right" id="lbStrip"></div>
 </div>
 
@@ -306,6 +328,7 @@
   function swap(i,k,el){const m=document.getElementById('lbMain');m.src=img(WORKS[i].imgs[k],1600);m.alt=WORKS[i].t+' view '+(k+1)+' — bronze sculpture by Emmanuel Okoro';
     [...document.querySelectorAll('#lbStrip img')].forEach(t=>t.classList.remove('active'));el.classList.add('active')}
   function closeLb(){lb.classList.remove('open');document.title=SITE_TITLE;}
+  function scrollThumbs(direction){const strip=document.getElementById('lbStrip');strip.scrollTop+=direction*100;}
   function enquire(title){go('contact');document.getElementById('regarding').textContent='Regarding: '+title;document.getElementById('m').value='I would like to enquire about \u201c'+title+'\u201d. '}
   function sendEnq(e){e.preventDefault();document.getElementById('enqForm').querySelector('.btn').style.display='none';document.getElementById('done').style.display='block';return false}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeDrawer()}});
