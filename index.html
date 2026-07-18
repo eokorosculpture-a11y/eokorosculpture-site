@@ -29,14 +29,23 @@
 
 
 
+.lb {
+    display: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 80 !important;
+    background: rgba(28,25,18,.94) !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    padding: 2rem !important;
+    gap: 2rem !important;
+}
+.lb.open { display: flex !important; }
+.lbclose { position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: #EDE7DA; font-size: 1.8rem; cursor: pointer; }
 #lbMain {
-    max-width: 60vw !important;
+    max-width: 100% !important;
     max-height: 60vh !important;
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: rgba(0,0,0,0.9) !important;
+    object-fit: contain !important;
 }
 .lb-left {
     flex: 0 0 20%;
@@ -239,12 +248,13 @@
 <footer><div>© 2026 Emmanuel Okoro · <span class="verd">Verdigris bronze sculptor</span></div><div>London, United Kingdom</div></footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true">
-  <div class="lbtop"><div><h3 id="lbTitle"></h3><div class="spec" id="lbSpec"></div></div>
-    <button class="lbclose" aria-label="Close" onclick="closeLb()">&times;</button></div>
-  <div class="stage"><img id="lbMain" alt=""></div>
-  <div class="strip" id="lbStrip"></div>
-  <div class="lbdesc" id="lbDesc"></div>
-  <div class="lbenq"><button class="btn" id="lbEnq">Enquire about this work</button></div>
+  <button class="lbclose" aria-label="Close" onclick="closeLb()">&times;</button>
+  <div class="lb-left">
+    <div><h3 id="lbTitle"></h3><div class="spec" id="lbSpec"></div></div>
+    <div class="lbdesc" id="lbDesc"></div>
+  </div>
+  <div class="lb-center"><img id="lbMain" alt=""></div>
+  <div class="lb-right" id="lbStrip"></div>
 </div>
 
 <script>
