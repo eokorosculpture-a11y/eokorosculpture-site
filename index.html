@@ -299,7 +299,6 @@
     const main=document.getElementById('lbMain'); main.src=img(w.imgs[0],1600); main.alt=w.t+' — bronze sculpture by Emmanuel Okoro'; document.getElementById('lbDesc').textContent=w.d||''; document.title=w.t+' — Bronze Sculpture | Emmanuel Okoro';
     const strip=document.getElementById('lbStrip');
     strip.innerHTML=w.imgs.map((id,k)=>`<img src="${img(id,200)}" alt="${esc(w.t)} view ${k+1}" class="${k===0?'active':''}" onclick="swap(${i},${k},this)" onerror="this.style.display='none'">`).join('');
-    document.getElementById('lbEnq').onclick=()=>{closeLb();enquire(w.t)};
     lb.classList.add('open');
   }
   function swap(i,k,el){const m=document.getElementById('lbMain');m.src=img(WORKS[i].imgs[k],1600);m.alt=WORKS[i].t+' view '+(k+1)+' — bronze sculpture by Emmanuel Okoro';
