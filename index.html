@@ -41,7 +41,7 @@
     gap: 2rem !important;
 }
 .lb.open { display: flex !important; }
-.lbclose { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: #B9B1A1; font-size: 1.4rem; cursor: pointer; z-index: 100; padding: 0; line-height: 1; transition: color 0.2s; }
+.lbclose { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: #B9B1A1; font-size: 1rem; cursor: pointer; z-index: 100; padding: 0; line-height: 1; transition: color 0.2s; }
 #lbMain {
     max-width: 100% !important;
     max-height: 60vh !important;
@@ -78,7 +78,7 @@
     object-fit: contain;
 }
 .lb-right {
-    flex: 0 0 9%;
+    flex: 0 0 6%;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
@@ -250,7 +250,7 @@
 <footer><div>© 2026 Emmanuel Okoro · <span class="verd">Verdigris bronze sculptor</span></div><div>London, United Kingdom</div></footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true">
-  <button class="lbclose" aria-label="Close" onclick="closeLb()">&times;</button>
+  <button class="lbclose" aria-label="Close" onclick="closeLb()">x</button>
   <div class="lb-left">
     <div><h3 id="lbTitle"></h3><div class="spec" id="lbSpec"></div></div>
     <div class="lbdesc" id="lbDesc"></div>
